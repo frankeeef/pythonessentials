@@ -1,0 +1,32 @@
+import listToString
+import sys
+from time import sleep
+from progressbar import progressbar
+from colorama import Fore, Style
+import socket
+import random
+
+def genRandom(range1, range2):
+    return random.randint(range1, range2)
+
+def getIP():
+    return socket.gethostbyname(socket.gethostname())
+
+def stylise(strText, strEmphasis, strColor):
+    return strColor + strEmphasis + strText + Style.RESET_ALL
+
+def noticePrint(noticer, color, noticee):
+    print(color + Style.BRIGHT + f"{noticer}: " + Style.RESET_ALL + noticee + Style.RESET_ALL)
+
+def argCheck(argInt, argVal):
+    try:
+        return sys.argv[argInt] == argVal
+    except:
+        return False
+
+def argVal(argInt):
+    try:
+        return sys.argv[argInt]
+    except:
+        return
+    
